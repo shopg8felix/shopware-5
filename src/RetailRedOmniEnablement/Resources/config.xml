@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element required="true" type="text" scope="locale">
+            <name>apiKey</name>
+            <label lang="de">Storefront API Key</label>
+            <label lang="en">Storefront API Key</label>
+        </element>
+
+        <element type="select" >
+            <name>apiStage</name>
+            <label lang="de">Stage</label>
+            <label lang="en">Stage</label>
+            <value>production</value>
+            <store>
+                <option>
+                    <value>production</value>
+                    <label>production</label>
+                </option>
+                <option>
+                    <value>staging</value>
+                    <label>staging</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="select" >
+            <name>unitSystem</name>
+            <label lang="de">Units</label>
+            <label lang="en">Units</label>
+            <value>metric</value>
+            <store>
+                <option>
+                    <value>metric</value>
+                    <label>metric</label>
+                </option>
+                <option>
+                    <value>imperial</value>
+                    <label>imperial</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="select" >
+            <name>countries</name>
+            <label lang="de">Countries</label>
+            <label lang="en">Countries</label>
+            <description>Set the available countries for the store list search</description>
+            <store>
+                <option>
+                    <value>de</value>
+                    <label>de</label>
+                </option>
+                <option>
+                    <value>us</value>
+                    <label>us</label>
+                </option>
+            </store>
+            <options>
+                <multiSelect>true</multiSelect>
+            </options>
+        </element>
+
+        <element type="select" >
+            <name>displayType</name>
+            <label lang="de">Display on product detail page</label>
+            <label lang="en">Display on product detail page</label>
+            <value>reserveButton</value>
+            <description>
+                Choose what should be displayed on the product detail page.
+                Reservation button - A button that opens a popup with a store list and the availability of the selected product in these stores.
+                Availability in store - A box that directly shows the availability of the product in the store.
+                The customer has to select a store the first time.
+            </description>
+            <store>
+                <option>
+                    <value>disabled</value>
+                    <label>Disabled</label>
+                </option>
+                <option>
+                    <value>reserveButton</value>
+                    <label>Show reservation button</label>
+                </option>
+                <option>
+                    <value>liveInventory</value>
+                    <label>Show availability in store</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="select" >
+            <name>renderLiveInventoryMode</name>
+            <label lang="de">Store selection</label>
+            <label lang="en">Store selection</label>
+            <value>modal</value>
+            <description>
+                Only relevant if "Show availability in store" is selected above. Choose how the customer can select his store.
+                Modal - Opens a popup where the customer can search for his store via zip code or geolocation.
+                Also shows address, distance and opening hours if available.
+                Dropdown - A simple dropdown where the customer can choose the store from. Recommended only for small amount of stores.
+            </description>
+            <store>
+                <option>
+                    <value>modal</value>
+                    <label>Modal</label>
+                </option>
+                <option>
+                    <value>list</value>
+                    <label>Dropdown</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="boolean">
+            <name>inventoryHideNumber</name>
+            <label lang="de">Hide stock</label>
+            <label lang="en">Hide stock</label>
+            <value>false</value>
+            <description>
+                Hides the stock number and therefore display only if the product is available or not.
+            </description>
+        </element>
+
+        <element type="number">
+            <name>inventoryShowExactUntil</name>
+            <label lang="de">Show exact inventory until</label>
+            <label lang="en">Show exact inventory until</label>
+            <description>
+                If inventory is higher than the given number the inventory will be displayed as "X+ Available"
+            </description>
+        </element>
+
+        <element type="number">
+            <name>inventoryShowLowUntil</name>
+            <label lang="de">Show low inventory until</label>
+            <label lang="en">Show low inventory until</label>
+            <value>5</value>
+            <description>
+                If inventory is lower than the given number the inventory will be displayed in the state-warning color.
+            </description>
+        </element>
+
+        <element type="text" scope="locale">
+            <name>termsLink</name>
+            <label lang="de">Terms Link</label>
+            <label lang="en">Terms Link</label>
+            <description>
+                Add an url to the terms and condition page, also enforces the user to accept them before placing an reservation
+            </description>
+        </element>
+
+        <element type="text" scope="locale">
+            <name>privacyLink</name>
+            <label lang="de">Privacy Link</label>
+            <label lang="en">Privacy Link</label>
+            <description>
+                Add an url to the privacy page, also enforces the user to accept them before placing an reservation
+            </description>
+        </element>
+
+        <element type="textarea" scope="locale">
+            <name>colors</name>
+            <label lang="de">Colors</label>
+            <label lang="en">Colors</label>
+            <value>
+                /* Primary color used for form elements and buttons */
+                --color-primary: 255, 255, 255;
+                /* Color used for links */
+                --color-link: 60, 155, 181;
+                /* Color used for alerting texts like errors */
+                --color-state-alarm : 176, 0, 32;
+                /* Color used for highlighting problems like low stock */
+                --color-state-warning: 241, 156, 69;
+                /* Color used for positve highlighting like successful reservation text. */
+                --color-state-success: 50, 172, 92;
+            </value>
+            <description>
+                Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3
+            </description>
+        </element>
+
+        <element type="textarea" scope="locale">
+            <name>translations</name>
+            <label lang="de">Translations JSON</label>
+            <label lang="en">Translations JSON</label>
+            <description>
+                JSON format. All strings can be found in the github repo
+             </description>
+        </element>
+    </elements>
+</config>

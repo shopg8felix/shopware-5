@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="retail_red_omni_enablement.subscriber.template_registration"
+                 class="RetailRedOmniEnablement\Subscriber\TemplateRegistration">
+            <argument type="service" id="template"/>
+            <argument>%retail_red_omni_enablement.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="retail_red_omni_enablement.subscriber.detail_subscriber"
+                 class="RetailRedOmniEnablement\Subscriber\DetailSubscriber">
+            <argument type="service" id="shopware.plugin.config_reader"/>
+            <argument>%retail_red_omni_enablement.plugin_name%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+    </services>
+</container>
