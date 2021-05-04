@@ -8,21 +8,12 @@
         <script type="text/javascript">
             try {
                 window.addEventListener('load', function () {
-                    var render = function () {
-                        {if $rrConfig.displayType == 'reserveButton'}
-                            retailred.renderReserveButton('#rr-reserve-button');
-                        {elseif $rrConfig.displayType == 'liveInventory'}
-                            retailred.renderLiveInventory('#rr-live-inventory', {
-                                variant: '{$rrConfig.renderLiveInventoryMode}'
-                            });
-                        {/if}
-                    }
-
                     var localization = {$rrConfig.translations|default:null|json_encode} || { } ;
                     localization.countries = {$rrConfig.countries|json_encode} || ["de"];
                     if (!Array.isArray(localization.countries)) {
                         localization.countries = [localization.countries];
                     }
+
                     var variants = {$sArticle.sConfigurator|json_encode} || [];
                     var selectedVariants = variants.filter(function(variant) {
                         return variant.selected === true;
@@ -31,6 +22,7 @@
                     var retailred = window.RetailRedStorefront.create({
                         apiKey: '{$rrConfig.apiKey}',
                         apiStage: '{$rrConfig.apiStage}',
+                        testMode: {$rrConfig.testMode|json_encode},
                         unitSystem: '{$rrConfig.unitSystem}',
                         localization: localization,
                         inventory: {
@@ -64,6 +56,16 @@
                             })
                         },
                     });
+
+                    var render = function () {
+                        {if $rrConfig.displayType == 'reserveButton'}
+                        retailred.renderReserveButton('#rr-reserve-button');
+                        {elseif $rrConfig.displayType == 'liveInventory'}
+                        retailred.renderLiveInventory('#rr-live-inventory', {
+                            variant: '{$rrConfig.renderLiveInventoryMode}'
+                        });
+                        {/if}
+                    }
 
                     render();
 

@@ -25,6 +25,16 @@
             </store>
         </element>
 
+        <element type="boolean">
+            <name>testMode</name>
+            <label lang="de">Testmode</label>
+            <label lang="en">Testmode</label>
+            <value>false</value>
+            <description>
+                When set to true no buttons will be rendered within the users browser, till the page was once opened with a query parameter like rrTesting=start. A testing session can be stopped by opening the page with rrTesting=end
+            </description>
+        </element>
+
         <element type="select" >
             <name>unitSystem</name>
             <label lang="de">Units</label>
