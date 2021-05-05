@@ -110,8 +110,6 @@
                             newData.options = newVariant;
                         }
 
-                        console.warn(newData);
-
                         retailred.updateConfig({
                             product: newData,
                         });
