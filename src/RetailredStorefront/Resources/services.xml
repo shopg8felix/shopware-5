@@ -6,17 +6,17 @@
 
     <services>
 
-        <service id="retail_red_omni_enablement.subscriber.template_registration"
-                 class="RetailRedOmniEnablement\Subscriber\TemplateRegistration">
+        <service id="retailred_storefront.subscriber.template_registration"
+                 class="RetailredStorefront\Subscriber\TemplateRegistration">
             <argument type="service" id="template"/>
-            <argument>%retail_red_omni_enablement.plugin_dir%</argument>
+            <argument>%retailred_storefront.plugin_dir%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>
 
-        <service id="retail_red_omni_enablement.subscriber.detail_subscriber"
-                 class="RetailRedOmniEnablement\Subscriber\DetailSubscriber">
+        <service id="retailred_storefront.subscriber.detail_subscriber"
+                 class="RetailredStorefront\Subscriber\DetailSubscriber">
             <argument type="service" id="shopware.plugin.config_reader"/>
-            <argument>%retail_red_omni_enablement.plugin_name%</argument>
+            <argument>%retailred_storefront.plugin_name%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>
 

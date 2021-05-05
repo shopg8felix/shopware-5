@@ -72,7 +72,7 @@
                     $('#sQuantity').change(function() {
                         retailred.updateConfig({
                             product: {
-                                quantity: $(this).val(),
+                                quantity: parseInt($(this).val()),
                             },
                         });
                     });

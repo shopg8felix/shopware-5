@@ -1,6 +1,6 @@
 <?php
 
-namespace RetailRedOmniEnablement\Subscriber;
+namespace RetailredStorefront\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 use Shopware\Components\Plugin\DBALConfigReader;
