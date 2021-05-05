@@ -47,7 +47,7 @@
                             quantity: 1,
                             imageUrl: '{$sArticle.image.source}',
                             price: {$sArticle.price_numeric},
-                            currencyCode: 'EUR', // TODO:
+                            currencyCode: '{$Shop->getCurrency()->getCurrency()}',
                             options: selectedVariants.map(function (variant) {
                                 return {
                                     name: variant.groupname,
