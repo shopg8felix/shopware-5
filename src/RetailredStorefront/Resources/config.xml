@@ -26,6 +26,26 @@
         </element>
 
         <element type="boolean">
+            <name>browserHistory</name>
+            <label lang="de">Use browser history</label>
+            <label lang="en">Use browser history</label>
+            <value>true</value>
+            <description>
+                If enabled the browsers history will be used within the reservation modal allowing the users to navigate with the native controls. Can be disabled when your store is already using the browsers history internally and the modals history conflicts with it.
+            </description>
+        </element>
+
+        <element type="boolean">
+            <name>useGeolocationImmediately</name>
+            <label lang="de">Use Geolocation immediately</label>
+            <label lang="en">Use Geolocation immediately</label>
+            <value>true</value>
+            <description>
+         	    If enabled, whenever the user opens the store list the browsers geolocation will be requested immediately instead of only after pressing the locate me button.
+            </description>
+        </element>
+
+        <element type="boolean">
             <name>testMode</name>
             <label lang="de">Testmode</label>
             <label lang="en">Testmode</label>

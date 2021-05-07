@@ -22,6 +22,8 @@
                     var retailred = window.RetailRedStorefront.create({
                         apiKey: '{$rrConfig.apiKey}',
                         apiStage: '{$rrConfig.apiStage}',
+                        useGeolocationImmediately: {$rrConfig.useGeolocationImmediately|json_encode},
+                        browserHistory: {$rrConfig.browserHistory|json_encode},
                         testMode: {$rrConfig.testMode|json_encode},
                         unitSystem: '{$rrConfig.unitSystem}',
                         localization: localization,
