@@ -90,7 +90,7 @@
                             newData.imageUrl = newImg.src;
                         }
 
-                        var newName = me.$el.find('.product--title').text();
+                        var newName = me.$el.find('.product--title[itemprop="name"]').first().text();
                         if (newName) {
                             newData.name = newName.replace(/\s+/g, " ").trim();
                         }
