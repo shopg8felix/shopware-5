@@ -4,7 +4,7 @@ It uses our [storefront javascript library](https://github.com/retail-red/storef
 The script adds a “reserve” button to the product detail page, via which a new reservation can be placed.
 
 ## Installation
-1. Download [RetailredStorefront.zip](RetailredStorefront.zip)
+1. Download <a href="RetailredStorefront.zip" download>RetailredStorefront.zip</a>
 1. Upload it as a plugin in your Shopware backend.
 1. Install and activate it
 1. Open the config of our plugin and enter your Storefront API Key (Shopgate Admin -> Settings -> General -> Storefront API Key)
