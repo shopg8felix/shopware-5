@@ -42,6 +42,12 @@
                     <label lang="en">ordernumber</label>
                 </option>
             </store>
+             <description lang="de">
+                Legt fest welcher Identifier als Artikelnummer an retail.red gesendet wird.
+            </description>
+            <description lang="en">
+                Controls which identifier is sent to retail.red as Product Code.
+            </description>
         </element>
 
 
