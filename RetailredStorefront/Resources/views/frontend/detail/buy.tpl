@@ -15,15 +15,13 @@
                 {$rrConfig.colors}
             }
 
-            .rr-button {
-                color: gray !important;
-            }
-            .rr-button svg {
-                fill: gray !important;
-            }
             .rr-live-inventory {
                 margin-top: 50px;
             }
+
+            {if $rrConfig.customCSS}
+                {$rrConfig.customCSS}
+            {/if}
         </style>
         {$smarty.block.parent}
         <div id="rr-reserve-button"></div>

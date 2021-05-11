@@ -253,15 +253,19 @@
             <label lang="de">Farben</label>
             <label lang="en">Colors</label>
             <value>
+                /* Color for common text */
+                --color-text: 255, 255, 255;
                 /* Primary color used for form elements and buttons */
-                --color-primary: 255, 255, 255;
+                --color-primary: 0, 0, 0;
+                /* Contrast color for the primary color - used as button text color  */
+                --color-primary-contrast: 255, 255, 255;
                 /* Color used for links */
                 --color-link: 60, 155, 181;
                 /* Color used for alerting texts like errors */
                 --color-state-alarm : 176, 0, 32;
                 /* Color used for highlighting problems like low stock */
                 --color-state-warning: 241, 156, 69;
-                /* Color used for positve highlighting like successful reservation text. */
+                /* Color used for positive highlighting like successful reservation text */
                 --color-state-success: 50, 172, 92;
             </value>
             <description lang="de">
@@ -269,6 +273,18 @@
             </description>
             <description lang="en">
                 Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3
+            </description>
+        </element>
+
+        <element type="textarea" scope="locale">
+            <name>customCSS</name>
+            <label lang="de">Custom CSS</label>
+            <label lang="en">Custom CSS</label>
+            <description lang="de">
+                Fügen Sie hier ihr eigenes CSS hinzu, um das styling anzupassen.
+            </description>
+            <description lang="en">
+               Add your custom CSS here to adjust styling
             </description>
         </element>
 
