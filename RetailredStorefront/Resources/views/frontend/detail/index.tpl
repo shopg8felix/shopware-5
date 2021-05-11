@@ -2,7 +2,6 @@
 
 {block name='frontend_index_header_javascript_tracking'}
     {$smarty.block.parent}
-
     {if $rrConfig.displayType != 'disabled'}
         <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v1.js'></script>
         <script type="text/javascript">
@@ -44,7 +43,7 @@
                             emailAddress: '{$userData.additional.user.email}',
                         },
                         product: {
-                            code: '{$sArticle.ordernumber}',
+                            code: '{if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean}{else}{$sArticle.ordernumber}{/if}',
                             name: '{$sArticle.articleName}',
                             quantity: 1,
                             imageUrl: '{$sArticle.image.source}',
@@ -80,9 +79,15 @@
                     });
 
                     $.subscribe('plugin/swAjaxVariant/onRequestData', function(e, me, response, values) {
-                        var orderNumber = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
+                        {if $rrConfig.productCodeMapping == 'ean'}
+                            var $response = $($.parseHTML(response, document))
+                            var productCode = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
+                        {else}
+                            var productCode = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
+                        {/if}
+
                         var newData = {
-                            code: orderNumber,
+                            code: productCode,
                         };
 
                         var newImg = me.$el.find('.product--image-container img').get(0);
@@ -111,6 +116,7 @@
                         if (newImg) {
                             newData.options = newVariant;
                         }
+                        console.warn(newData);
 
                         retailred.updateConfig({
                             product: newData,

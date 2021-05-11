@@ -25,6 +25,24 @@
             </store>
         </element>
 
+        <element type="select" >
+            <name>productCodeMapping</name>
+            <label lang="de">Use as product code</label>
+            <label lang="en">Use as product code</label>
+            <value>ean</value>
+            <store>
+                <option>
+                    <value>ean</value>
+                    <label>EAN</label>
+                </option>
+                <option>
+                    <value>ordernumber</value>
+                    <label>ordernumber</label>
+                </option>
+            </store>
+        </element>
+
+
         <element type="boolean">
             <name>browserHistory</name>
             <label lang="de">Use browser history</label>
