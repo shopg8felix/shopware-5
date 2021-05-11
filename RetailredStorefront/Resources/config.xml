@@ -4,7 +4,7 @@
     <elements>
         <element required="true" type="text" scope="locale">
             <name>apiKey</name>
-            <label lang="de">Storefront API Key</label>
+            <label lang="de">Storefront API Schlüssel</label>
             <label lang="en">Storefront API Key</label>
         </element>
 
@@ -45,54 +45,65 @@
 
         <element type="boolean">
             <name>browserHistory</name>
-            <label lang="de">Use browser history</label>
+            <label lang="de">Nutze Browser Historie</label>
             <label lang="en">Use browser history</label>
             <value>true</value>
-            <description>
+            <description lang="de">
+                Wenn aktiviert nutzt das Reservierungsfenster die Browser Historie. Das erlaubt es Nutzern zur Navigation die Navigationselemente des Browsers zu nutzen. Kann deaktiviert werden, sofern der Shop bereits die Browser Historie nutzt und es dadurch zu Konflikten kommt.
+            </description>
+            <description lang="en">
                 If enabled the browsers history will be used within the reservation modal allowing the users to navigate with the native controls. Can be disabled when your store is already using the browsers history internally and the modals history conflicts with it.
             </description>
         </element>
 
         <element type="boolean">
             <name>useGeolocationImmediately</name>
-            <label lang="de">Use Geolocation immediately</label>
+            <label lang="de">Nutze Standort sofort</label>
             <label lang="en">Use Geolocation immediately</label>
             <value>true</value>
-            <description>
+            <description lang="de">
+                Wenn aktiviert wird der Standort des Kunden sofort nach öffnen des Reservierungsfensters abgefragt. Andernfalls muss der Nutzer dazu auf den entsprechenden Button klicken.
+            </description>
+            <description lang="en">
          	    If enabled, whenever the user opens the store list the browsers geolocation will be requested immediately instead of only after pressing the locate me button.
             </description>
         </element>
 
         <element type="boolean">
             <name>testMode</name>
-            <label lang="de">Testmode</label>
+            <label lang="de">Testmodus</label>
             <label lang="en">Testmode</label>
             <value>false</value>
-            <description>
+            <description lang="de">
+                Wenn aktiviert verhindert dieser Modus die Sichtbarkeit des Reservierungsbuttons bis der Parameter ?rrTesting=start an die Shop-URL angehängt wird. Das testing kann gestoppt werden mit ?rrTesting=end.
+            </description>
+            <description lang="en">
                 When set to true no buttons will be rendered within the users browser, till the page was once opened with a query parameter like rrTesting=start. A testing session can be stopped by opening the page with rrTesting=end
             </description>
         </element>
 
         <element type="select" >
             <name>unitSystem</name>
-            <label lang="de">Units</label>
+            <label lang="de">Einheit</label>
             <label lang="en">Units</label>
             <value>metric</value>
             <store>
                 <option>
                     <value>metric</value>
-                    <label>metric</label>
+                    <label lang="en">metric</label>
+                    <label lang="de">metrisch</label>
                 </option>
                 <option>
                     <value>imperial</value>
-                    <label>imperial</label>
+                    <label lang="de">imperial</label>
+                    <label lang="en">imperial</label>
                 </option>
             </store>
         </element>
 
         <element type="select" >
             <name>countries</name>
-            <label lang="de">Countries</label>
+            <label lang="de">Länder</label>
             <label lang="en">Countries</label>
             <description>Set the available countries for the store list search</description>
             <store>
@@ -112,10 +123,15 @@
 
         <element type="select" >
             <name>displayType</name>
-            <label lang="de">Display on product detail page</label>
+            <label lang="de">Anzeige auf Produktdetailseite</label>
             <label lang="en">Display on product detail page</label>
             <value>reserveButton</value>
-            <description>
+            <description lang="de">
+                Wählen Sie was auf der Produktdetailseite angezeigt werden soll.
+                Reservieren-Button - Ein Button, der ein Pop-Up mit der Auflistung aller Filialen öffnet und die Verfügbarkeit in diesen Filialen anzeigt.
+                Filialverfügbarkeit - Eine Box, die direkt und ohne weiteren Klick die Verfügbarkeit anzeigt. Der Kunde muss initial eine Filiale wählen.
+            </description>
+            <description lang="en">
                 Choose what should be displayed on the product detail page.
                 Reservation button - A button that opens a popup with a store list and the availability of the selected product in these stores.
                 Availability in store - A box that directly shows the availability of the product in the store.
@@ -124,25 +140,33 @@
             <store>
                 <option>
                     <value>disabled</value>
-                    <label>Disabled</label>
+                    <label lang="de">Deaktiviert</label>
+                    <label lang="en">Disabled</label>
                 </option>
                 <option>
                     <value>reserveButton</value>
-                    <label>Show reservation button</label>
+                    <label lang="de">Reservieren-Button</label>
+                    <label lang="en">Show reservation button</label>
                 </option>
                 <option>
                     <value>liveInventory</value>
-                    <label>Show availability in store</label>
+                    <label lang="de">Filialverfügbarkeit</label>
+                    <label lang="en">Show availability in store</label>
                 </option>
             </store>
         </element>
 
         <element type="select" >
             <name>renderLiveInventoryMode</name>
-            <label lang="de">Store selection</label>
+            <label lang="de">Filial Auswahl</label>
             <label lang="en">Store selection</label>
             <value>modal</value>
-            <description>
+            <description lang="de">
+                Nur relevant wenn im vorherigen Schritt Filialverfügbarkeit ausgewählt wurde. Legt fest wie der Nutzer Stores auswählen kann.
+                Pop-Up - Pop-Up indem der Nutzer eine Filiale über Standort oder PLZ-Suche wählen kann. Zeigt außerdem Adresse, Entfernung und Öffnungszeiten der Filiale.
+                Dropdown - Einfaches Dropdown zur Auswahl einer Filiale. Eignet sich wenn nur wenige Filialen wählbar sind.
+            </description>
+            <description lang="en">
                 Only relevant if "Show availability in store" is selected above. Choose how the customer can select his store.
                 Modal - Opens a popup where the customer can search for his store via zip code or geolocation.
                 Also shows address, distance and opening hours if available.
@@ -151,65 +175,82 @@
             <store>
                 <option>
                     <value>modal</value>
-                    <label>Modal</label>
+                    <label lang="de">Pop-Up</label>
+                    <label lang="en">Modal</label>
                 </option>
                 <option>
                     <value>list</value>
-                    <label>Dropdown</label>
+                    <label lang="de">Dropdown</label>
+                    <label lang="en">Dropdown</label>
                 </option>
             </store>
         </element>
 
         <element type="boolean">
             <name>inventoryHideNumber</name>
-            <label lang="de">Hide stock</label>
+            <label lang="de">Bestand verstecken</label>
             <label lang="en">Hide stock</label>
             <value>false</value>
-            <description>
+            <description lang="de">
+                Versteckt den tatsächlichen Bestand und zeigt stattdessen "Verfügbar" oder "Nicht verfügbar".
+            </description>
+            <description lang="en">
                 Hides the stock number and therefore display only if the product is available or not.
             </description>
         </element>
 
         <element type="number">
             <name>inventoryShowExactUntil</name>
-            <label lang="de">Show exact inventory until</label>
+            <label lang="de">Zeige exakten Bestand an bis</label>
             <label lang="en">Show exact inventory until</label>
-            <description>
+            <description lang="de">
+                Wenn der Bestand höher als die ausgewählte Zahl ist, wird "X+ Verfügbar" angezeigt.
+            </description>
+            <description lang="en">
                 If inventory is higher than the given number the inventory will be displayed as "X+ Available"
             </description>
         </element>
 
         <element type="number">
             <name>inventoryShowLowUntil</name>
-            <label lang="de">Show low inventory until</label>
+            <label lang="de">Zeige niedrigen Bestand an bis</label>
             <label lang="en">Show low inventory until</label>
             <value>5</value>
-            <description>
+            <description lang="de">
+                Wenn der Bestand niedriger als die gewählte Zahl ist, wird dieser entsprechend eingefärbt.
+            </description>
+            <description lang="en">
                 If inventory is lower than the given number the inventory will be displayed in the state-warning color.
             </description>
         </element>
 
         <element type="text" scope="locale">
             <name>termsLink</name>
-            <label lang="de">Terms Link</label>
+            <label lang="de">AGB Link</label>
             <label lang="en">Terms Link</label>
-            <description>
+            <description lang="de">
+                Fügt einen Link zu den AGB ein. Diese müssen vom Kunden akzeptiert werden.
+            </description>
+            <description lang="en">
                 Add an url to the terms and condition page, also enforces the user to accept them before placing an reservation
             </description>
         </element>
 
         <element type="text" scope="locale">
             <name>privacyLink</name>
-            <label lang="de">Privacy Link</label>
+            <label lang="de">Datenschutzerklärung Link</label>
             <label lang="en">Privacy Link</label>
-            <description>
+            <description lang="en">
+                Fügt einen Link zur Datenschutzerklärung ein. Diese muss vom Kunden akzeptiert werden.
+            </description>
+            <description lang="en">
                 Add an url to the privacy page, also enforces the user to accept them before placing an reservation
             </description>
         </element>
 
         <element type="textarea" scope="locale">
             <name>colors</name>
-            <label lang="de">Colors</label>
+            <label lang="de">Farben</label>
             <label lang="en">Colors</label>
             <value>
                 /* Primary color used for form elements and buttons */
@@ -223,16 +264,22 @@
                 /* Color used for positve highlighting like successful reservation text. */
                 --color-state-success: 50, 172, 92;
             </value>
-            <description>
+            <description lang="de">
+                Bitte nutzen Sie nur die 3 Zahlen des RGB Schemas. rgb(1,2,3) -> 1,2,3
+            </description>
+            <description lang="en">
                 Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3
             </description>
         </element>
 
         <element type="textarea" scope="locale">
             <name>translations</name>
-            <label lang="de">Translations JSON</label>
+            <label lang="de">Übersetzungen JSON</label>
             <label lang="en">Translations JSON</label>
-            <description>
+            <description lang="de">
+                JSON Format. Alle Strings können in GitHub gefunden werden.
+             </description>
+            <description lang="en">
                 JSON format. All strings can be found in the github repo
              </description>
         </element>
