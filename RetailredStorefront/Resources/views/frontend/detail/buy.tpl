@@ -11,7 +11,7 @@
                 margin-top: 5px;
             }
 
-            #rr-omni #rr-omni-custom, #rr-omni-reserve-button {
+            #rr-omni #rr-omni-custom, #rr-omni-reserve-button, #rr-inventory-custom {
                 {$rrConfig.colors}
             }
 
