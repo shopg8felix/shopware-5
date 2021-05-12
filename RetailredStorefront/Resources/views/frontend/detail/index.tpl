@@ -17,6 +17,7 @@
                     var selectedVariants = variants.filter(function(variant) {
                         return variant.selected === true;
                     }) || [];
+                    var isVariantSelected = !!selectedVariants.length;
 
                     var retailred = window.RetailRedStorefront.create({
                         apiKey: '{$rrConfig.apiKey}',
@@ -66,6 +67,10 @@
                             variant: '{$rrConfig.renderLiveInventoryMode}'
                         });
                         {/if}
+
+                        setTimeout(function() {
+                            $('#rr-omni-reserve-button, #rr-inventory-find, #rr-inventory-select').prop('disabled', !isVariantSelected);
+                        }, 50);
                     }
 
                     render();
@@ -79,51 +84,61 @@
                     });
 
                     $.subscribe('plugin/swAjaxVariant/onRequestData', function(e, me, response, values) {
-                        {if $rrConfig.productCodeMapping == 'ean'}
-                            var $response = $($.parseHTML(response, document))
-                            var productCode = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
-                        {else}
-                            var productCode = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
-                        {/if}
+                        try {
+                            {if $rrConfig.productCodeMapping == 'ean'}
+                                var $response = $($.parseHTML(response, document))
+                                var productCode = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
+                            {else}
+                                var productCode = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
+                            {/if}
 
-                        var newData = {
-                            code: productCode,
-                        };
-
-                        var newImg = me.$el.find('.product--image-container img').get(0);
-                        if (newImg) {
-                            newData.imageUrl = newImg.src;
-                        }
-
-                        var newName = me.$el.find('.product--title[itemprop="name"]').first().text();
-                        if (newName) {
-                            newData.name = newName.replace(/\s+/g, " ").trim();
-                        }
-
-                        var newPrice = me.$el.find('.price--content meta[itemprop=price]').attr('content');
-                        if (newPrice) {
-                            newData.price = parseFloat(newPrice);
-                        }
-
-                        var newVariant = variants.map(function (variant) {
-                            const selected_value = values[`group[${ variant.groupID }]`]
-
-                            return {
-                                name: variant.groupname,
-                                value: variant.values[selected_value].optionname,
+                            var newData = {
+                                code: productCode,
                             };
-                        });
-                        if (newImg) {
-                            newData.options = newVariant;
+
+                            var newImg = me.$el.find('.product--image-container img').get(0);
+                            if (newImg) {
+                                newData.imageUrl = newImg.src;
+                            }
+
+                            var newName = me.$el.find('.product--title[itemprop="name"]').first().text();
+                            if (newName) {
+                                newData.name = newName.replace(/\s+/g, " ").trim();
+                            }
+
+                            var newPrice = me.$el.find('.price--content meta[itemprop=price]').attr('content');
+                            if (newPrice) {
+                                newData.price = parseFloat(newPrice);
+                            }
+
+                            var newVariant = variants.map(function (variant) {
+                                var selected_value = values[`group[${ variant.groupID }]`]
+
+                                if (!selected_value) {
+                                    return null;
+                                }
+
+                                return {
+                                    name: variant.groupname,
+                                    value: variant.values[selected_value].optionname,
+                                };
+                            }).filter(Boolean);
+
+                            isVariantSelected = newVariant.length === variants.length;
+
+                            if (newImg) {
+                                newData.options = newVariant;
+                            }
+
+                            retailred.updateConfig({
+                                product: newData,
+                            });
+
+                            // shopware replaces the html after variant switch. so we need to add our buttons again
+                            render();
+                        } catch (e) {
+                            console.error(e);
                         }
-                        console.warn(newData);
-
-                        retailred.updateConfig({
-                            product: newData,
-                        });
-
-                        // shopware replaces the html after variant switch. so we need to add our buttons again
-                        render();
                     });
                 });
             } catch (e) {
