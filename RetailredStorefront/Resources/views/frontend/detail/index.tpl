@@ -14,6 +14,7 @@
                     }
 
                     var variants = {$sArticle.sConfigurator|json_encode} || [];
+                    var hasVariants = !!variants.length;
                     var selectedVariants = variants.filter(function(variant) {
                         return variant.selected === true;
                     }) || [];
@@ -68,9 +69,11 @@
                         });
                         {/if}
 
-                        setTimeout(function() {
-                            $('#rr-omni-reserve-button, #rr-inventory-find, #rr-inventory-select').prop('disabled', !isVariantSelected);
-                        }, 50);
+                        if (hasVariants) {
+                            setTimeout(function() {
+                                $('#rr-omni-reserve-button, #rr-inventory-find, #rr-inventory-select').prop('disabled', !isVariantSelected);
+                            }, 50);
+                        }
                     }
 
                     render();

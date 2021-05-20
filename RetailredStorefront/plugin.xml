@@ -4,12 +4,17 @@
     <label lang="de">retail.red for Shopware 5</label>
     <label lang="en">retail.red for Shopware 5</label>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <copyright>(c) by Shopgate GmbH</copyright>
     <license>MIT</license>
     <link>https://retail.red</link>
     <author>Shopgate GmbH</author>
     <compatibility minVersion="5.3.0"/>
+
+    <changelog version="1.0.1">
+        <changes lang="de">Bugfix</changes>
+        <changes lang="en">Bugfix</changes>
+    </changelog>
 
     <changelog version="1.0.0">
         <changes lang="de">Erstveröffentlichung</changes>
