@@ -52,7 +52,7 @@
                             price: {$sArticle.price_numeric},
                             currencyCode: '{$Shop->getCurrency()->getCurrency()}',
                             identifiers: {
-                                sku: '{$sArticle.ordernumber}',
+                                ean: '{$sArticle.ean}',
                             },
                             options: selectedVariants.map(function (variant) {
                                 return {
@@ -95,19 +95,19 @@
 
                     $.subscribe('plugin/swAjaxVariant/onRequestData', function(e, me, response, values) {
                         try {
-                            var orderNumber = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
+                            var $response = $($.parseHTML(response, document));
+                            var ean = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
 
                             {if $rrConfig.productCodeMapping == 'ean'}
-                                var $response = $($.parseHTML(response, document))
-                                var productCode = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
+                                var productCode = ean ;
                             {else}
-                                var productCode = orderNumber;
+                                var productCode = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
                             {/if}
 
                             var newData = {
                                 code: productCode,
                                 identifiers: {
-                                    sku: orderNumber
+                                    ean: ean,
                                 }
                             };
 
