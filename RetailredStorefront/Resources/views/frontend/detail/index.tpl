@@ -51,10 +51,17 @@
                             imageUrl: '{$sArticle.image.source}',
                             price: {$sArticle.price_numeric},
                             currencyCode: '{$Shop->getCurrency()->getCurrency()}',
+                            identifiers: {
+                                ean: '{$sArticle.ean}',
+                            },
                             options: selectedVariants.map(function (variant) {
                                 return {
+                                    code: variant.groupID.toString(),
                                     name: variant.groupname,
-                                    value: variant.values[variant.selected_value].optionname,
+                                    value: {
+                                        code: variant.values[variant.selected_value].optionID.toString(),
+                                        name: variant.values[variant.selected_value].optionname
+                                    }
                                 };
                             })
                         },
@@ -88,15 +95,20 @@
 
                     $.subscribe('plugin/swAjaxVariant/onRequestData', function(e, me, response, values) {
                         try {
+                            var $response = $($.parseHTML(response, document));
+                            var ean = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
+
                             {if $rrConfig.productCodeMapping == 'ean'}
-                                var $response = $($.parseHTML(response, document))
-                                var productCode = $.trim($response.find('meta[itemprop^=gtin]').attr('content'));
+                                var productCode = ean ;
                             {else}
                                 var productCode = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
                             {/if}
 
                             var newData = {
                                 code: productCode,
+                                identifiers: {
+                                    ean: ean,
+                                }
                             };
 
                             var newImg = me.$el.find('.product--image-container img').get(0);
@@ -122,8 +134,12 @@
                                 }
 
                                 return {
+                                    code: variant.groupID.toString(),
                                     name: variant.groupname,
-                                    value: variant.values[selected_value].optionname,
+                                    value: {
+                                        code: variant.values[selected_value].optionID.toString(),
+                                        name: variant.values[selected_value].optionname
+                                    }
                                 };
                             }).filter(Boolean);
 
