@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.0.3] - 2021-07-28
+### Added
+- improved variant handling
+
 ## [1.0.2] - 2021-05-28
 ### Added
 - new product.options format
