@@ -3,7 +3,7 @@
 {block name='frontend_index_header_javascript_tracking'}
     {$smarty.block.parent}
     {if $rrConfig.displayType != 'disabled'}
-        <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v1.js'></script>
+        <script type='text/javascript' src='https://cdn.retail.red/omni/retailred-storefront-library-v2.js'></script>
         <script type="text/javascript">
             try {
                 window.addEventListener('load', function () {
@@ -43,6 +43,9 @@
                             lastName: '{$userData.additional.user.lastname}',
                             phone: '{$userData.additional.user.phone}',
                             emailAddress: '{$userData.additional.user.email}',
+                        },
+                        ui: {
+                            reserveButtonClasses: {$rrConfig.reserveButtonClasses|default:null|json_encode},
                         },
                         product: {
                             code: '{if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean}{else}{$sArticle.ordernumber}{/if}',
