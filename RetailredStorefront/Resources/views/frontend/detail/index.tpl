@@ -48,7 +48,7 @@
                             reserveButtonClasses: {$rrConfig.reserveButtonClasses|default:null|json_encode},
                         },
                         product: {
-                            code: '{if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean}{else}{$sArticle.ordernumber}{/if}',
+                            code: (!hasVariants || (hasVariants && isVariantSelected)) ? '{if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean}{else}{$sArticle.ordernumber}{/if}' : null,
                             name: '{$sArticle.articleName}',
                             quantity: 1,
                             imageUrl: '{$sArticle.image.source}',
@@ -78,12 +78,6 @@
                             variant: '{$rrConfig.renderLiveInventoryMode}'
                         });
                         {/if}
-
-                        if (hasVariants) {
-                            setTimeout(function() {
-                                $('#rr-omni-reserve-button, #rr-inventory-find, #rr-inventory-select').prop('disabled', !isVariantSelected);
-                            }, 50);
-                        }
                     }
 
                     render();
@@ -150,6 +144,10 @@
 
                             if (newImg) {
                                 newData.options = newVariant;
+                            }
+
+                            if (hasVariants && !isVariantSelected) {
+                                newData.code = null;
                             }
 
                             retailred.updateConfig({
