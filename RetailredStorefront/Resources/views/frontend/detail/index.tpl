@@ -82,7 +82,7 @@
 
                     render();
 
-                    $('#sQuantity').change(function() {
+                    $(document).on('change', '#sQuantity', function() {
                         retailred.updateConfig({
                             product: {
                                 quantity: parseInt($(this).val()),
@@ -102,6 +102,7 @@
                             {/if}
 
                             var newData = {
+                                quantity: 1,
                                 code: productCode,
                                 identifiers: {
                                     ean: ean,
