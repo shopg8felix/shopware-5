@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
-## [1.1.0] - 2022-02-10
+## [1.1.0] - 2022-02-14
 ### Added
 - new config to define button classes
 
