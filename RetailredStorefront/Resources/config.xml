@@ -113,7 +113,12 @@
             <name>countries</name>
             <label lang="de">Länder</label>
             <label lang="en">Countries</label>
-            <description>Set the available countries for the store list search</description>
+            <description lang="de">
+                Definiert die verfügbaren Länder für die Filialliste suche
+            </description>
+            <description lang="en">
+                Set the available countries for the store list search
+            </description>
             <store>
                 <option>
                     <value>de</value>
@@ -248,7 +253,7 @@
             <name>privacyLink</name>
             <label lang="de">Datenschutzerklärung Link</label>
             <label lang="en">Privacy Link</label>
-            <description lang="en">
+            <description lang="de">
                 Fügt einen Link zur Datenschutzerklärung ein. Diese muss vom Kunden akzeptiert werden.
             </description>
             <description lang="en">
@@ -258,31 +263,51 @@
 
         <element type="textarea" scope="locale">
             <name>colors</name>
-            <label lang="de">Farben</label>
-            <label lang="en">Colors</label>
+            <label lang="de">Styling Variablen</label>
+            <label lang="en">Style variables</label>
             <value>
                 /* Color for common text */
-                --color-text: 0, 0, 0;
+                --rr-color-text: #000;
+                /* Color for text with a medium emphasis */
+                --rr-color-text-medium-emphasis: #787878;
                 /* Primary color used for form elements and buttons */
-                --color-primary: 0, 0, 0;
+                --rr-color-primary: #000;
                 /* Contrast color for the primary color - used as button text color  */
-                --color-primary-contrast: 255, 255, 255;
+                --rr-color-primary-contrast: #fff;
                 /* Color used for links */
-                --color-link: 60, 155, 181;
+                --rr-color-link: #3c9bb5;
+                /* Text color for disabled buttons */
+                --rr-color-button-disabled: #7f7f7f;
+                /* Background color for disabled buttons */
+                --rr-color-button-background-disabled: #E0E0E0;
                 /* Color used for alerting texts like errors */
-                --color-state-alarm : 176, 0, 32;
+                --rr-color-state-alarm : #b00020;
                 /* Color used for highlighting problems like low stock */
-                --color-state-warning: 241, 156, 69;
+                --rr-color-state-warning: #f19c45;
                 /* Color used for positive highlighting like successful reservation text */
-                --color-state-success: 50, 172, 92;
+                --rr-color-state-success: #32ac5c;
+                /* Font family for the modal */
+                --rr-font-family: inherit
             </value>
             <description lang="de">
-                Bitte nutzen Sie nur die 3 Zahlen des RGB Schemas. rgb(1,2,3) -> 1,2,3
             </description>
             <description lang="en">
-                Please use only the 3 numbers of rgb schema. rgb(1,2,3) -> 1,2,3
             </description>
         </element>
+
+        <element type="text" scope="locale">
+            <name>reserveButtonClasses</name>
+            <label lang="de">Reservieren Button Klassen</label>
+            <label lang="en">Reserve button classes</label>
+            <value>button btn btn-primary</value>
+            <description lang="de">
+                Fügt Klassen zum Reservieren-Button hinzu. Das Setting kann dazu benutzt werden,  um den Button ihrem CI anzupassen.
+            </description>
+            <description lang="en">
+                Applies classes to the reserve button. This setting can be used to style the button according to your CI.
+            </description>
+        </element>
+
 
         <element type="textarea" scope="locale">
             <name>customCSS</name>

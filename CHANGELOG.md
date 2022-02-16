@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-02-14
+### Added
+- new config to define button classes
+
+### Changed
+- color configs
+- using [new v2](https://github.com/retail-red/storefront-library/blob/master/CHANGELOG.md) of the storefront library
+
+### Fixed
+- various style issues
+
 ## [1.0.3] - 2021-07-28
 ### Added
 - improved variant handling
