@@ -299,7 +299,7 @@
             <name>reserveButtonClasses</name>
             <label lang="de">Reservieren Button Klassen</label>
             <label lang="en">Reserve button classes</label>
-            <value>button btn btn-primary</value>
+            <value>block btn is--secondary is--center is--large</value>
             <description lang="de">
                 Fügt Klassen zum Reservieren-Button hinzu. Das Setting kann dazu benutzt werden,  um den Button ihrem CI anzupassen.
             </description>
