@@ -64,6 +64,38 @@
             </description>
         </element>
 
+        <element type="select" >
+            <name>saveCustomerData</name>
+            <label lang="de">Speicherung von Kundendaten</label>
+            <label lang="en">Save user data</label>
+            <value>on</value>
+            <description lang="de">
+                Legt fest wie die Benutzerdaten im localstorage persistiert werden. Mögliche Werte sind:
+                "off" (Daten werden nicht gespeichert), "on" (Daten werden gespeichert), "checkbox" (Nutzer kann selbst bestimmen)
+            </description>
+            <description lang="en">
+                Controls how user data is persisted within the localStorage.
+                Can be one of "off" (data will not be saved), "on" (data will be saved in any case), "checkbox" (users can decide via a checkbox on the reservation page)
+            </description>
+            <store>
+                <option>
+                    <value>on</value>
+                    <label lang="de">on</label>
+                    <label lang="en">on</label>
+                </option>
+                <option>
+                    <value>off</value>
+                    <label lang="de">off</label>
+                    <label lang="en">off</label>
+                </option>
+                <option>
+                    <value>checkbox</value>
+                    <label lang="de">checkbox</label>
+                    <label lang="en">checkbox</label>
+                </option>
+            </store>
+        </element>
+
         <element type="boolean">
             <name>useGeolocationImmediately</name>
             <label lang="de">Nutze Standort sofort</label>
