@@ -261,40 +261,6 @@
             </description>
         </element>
 
-        <element type="textarea" scope="locale">
-            <name>colors</name>
-            <label lang="de">Styling Variablen</label>
-            <label lang="en">Style variables</label>
-            <value>
-                /* Color for common text */
-                --rr-color-text: #000;
-                /* Color for text with a medium emphasis */
-                --rr-color-text-medium-emphasis: #787878;
-                /* Primary color used for form elements and buttons */
-                --rr-color-primary: #000;
-                /* Contrast color for the primary color - used as button text color  */
-                --rr-color-primary-contrast: #fff;
-                /* Color used for links */
-                --rr-color-link: #3c9bb5;
-                /* Text color for disabled buttons */
-                --rr-color-button-disabled: #7f7f7f;
-                /* Background color for disabled buttons */
-                --rr-color-button-background-disabled: #E0E0E0;
-                /* Color used for alerting texts like errors */
-                --rr-color-state-alarm : #b00020;
-                /* Color used for highlighting problems like low stock */
-                --rr-color-state-warning: #f19c45;
-                /* Color used for positive highlighting like successful reservation text */
-                --rr-color-state-success: #32ac5c;
-                /* Font family for the modal */
-                --rr-font-family: inherit
-            </value>
-            <description lang="de">
-            </description>
-            <description lang="en">
-            </description>
-        </element>
-
         <element type="text" scope="locale">
             <name>reserveButtonClasses</name>
             <label lang="de">Reservieren Button Klassen</label>

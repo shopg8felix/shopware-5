@@ -1,0 +1,66 @@
+#rr-omni #rr-omni-custom, #rr-omni-reserve-button, #rr-inventory-custom {
+  /* Color for common text */
+  --rr-color-text: @text-color;
+  /* Color for text with a medium emphasis */
+  --rr-color-text-medium-emphasis: @label-color;
+  /* Primary color used for form elements and buttons */
+  --rr-color-primary: @btn-primary-top-bg;
+  /* Contrast color for the primary color - used as button text color  */
+  --rr-color-primary-contrast: @btn-primary-text-color;
+  /* Color used for links */
+  --rr-color-link: @link-color;
+  /* Text color for disabled buttons */
+  --rr-color-button-disabled: @btn-default-text-color;
+  /* Background color for disabled buttons */
+  --rr-color-button-background-disabled: @btn-default-bottom-bg;
+  /* Color used for alerting texts like errors */
+  --rr-color-state-alarm: @highlight-error;
+  /* Color used for highlighting problems like low stock */
+  --rr-color-state-warning: @highlight-notice;
+  /* Color used for positive highlighting like successful reservation text */
+  --rr-color-state-success: @highlight-success;
+  /* Font family for the modal */
+  --rr-font-family: @font-base-stack;
+}
+
+#rr-omni-reserve-button{
+  width: 100%;
+  .unitize(line-height, 38);
+  font-size: 1rem;
+  text-align: center;
+  .unitize(margin-top, 5);
+}
+
+.rr-live-inventory {
+  .unitize(margin-top, 50);
+}
+
+#rr-omni {
+  &.rr-omni-int {
+    .rr-button {
+      font-weight: @font-bold-weight;
+      //Shopware uses a gradient - mixin won't work for variables
+      .linear-gradient(@btn-primary-top-bg, @btn-primary-bottom-bg);
+
+      &:disabled {
+        &:extend(.btn:disabled);
+      }
+
+      &:hover {
+        &:extend(.is--primary:hover);
+      }
+    }
+
+    .rr-link {
+      &:hover {
+        color: @link-hover-color;
+      }
+    }
+
+    .rr-text-field {
+      input {
+        background-color: @input-bg;
+      }
+    }
+  }
+}
