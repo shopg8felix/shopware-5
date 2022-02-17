@@ -35,7 +35,7 @@ class TemplateRegistration implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PreDispatch' => 'onPreDispatch'
+            'Enlight_Controller_Action_PreDispatch_Frontend' => 'onPreDispatch'
         ];
     }
 
