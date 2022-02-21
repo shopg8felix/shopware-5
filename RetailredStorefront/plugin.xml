@@ -4,12 +4,25 @@
     <label lang="de">retail.red for Shopware 5</label>
     <label lang="en">retail.red for Shopware 5</label>
 
-    <version>1.2.0-beta.8</version>
+    <version>1.2.0</version>
     <copyright>(c) by Shopgate GmbH</copyright>
     <license>MIT</license>
     <link>https://retail.red</link>
     <author>Shopgate GmbH</author>
     <compatibility minVersion="5.3.0"/>
+
+    <changelog version="1.2.0">
+        <changes lang="de">
+            - new config `saveCustomerData`
+            - LESS style mapping
+            - changed default value of `reserveButtonClasses`
+        </changes>
+        <changes lang="en">
+            - new config `saveCustomerData`
+            - LESS style mapping
+            - changed default value of `reserveButtonClasses`
+        </changes>
+    </changelog>
 
     <changelog version="1.1.0">
         <changes lang="de">
