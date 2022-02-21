@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-02-17
+### Added
+- new config `saveCustomerData`
+- LESS style mapping
+
+### Changed
+- default value of `reserveButtonClasses`
+
 ## [1.1.0] - 2022-02-14
 ### Added
 - new config to define button classes

@@ -71,11 +71,17 @@
             <value>on</value>
             <description lang="de">
                 Legt fest wie die Benutzerdaten im localstorage persistiert werden. Mögliche Werte sind:
-                "off" (Daten werden nicht gespeichert), "on" (Daten werden gespeichert), "checkbox" (Nutzer kann selbst bestimmen)
+                "off" (Daten werden nicht gespeichert),
+                "on" (Daten werden gespeichert),
+                "checkbox" (Nutzer kann selbst bestimmen),
+                "consent manager",
             </description>
             <description lang="en">
                 Controls how user data is persisted within the localStorage.
-                Can be one of "off" (data will not be saved), "on" (data will be saved in any case), "checkbox" (users can decide via a checkbox on the reservation page)
+                Can be one of "off" (data will not be saved),
+                "on" (data will be saved in any case),
+                "checkbox" (users can decide via a checkbox on the reservation page)
+                "consent manager"
             </description>
             <store>
                 <option>
@@ -92,6 +98,11 @@
                     <value>checkbox</value>
                     <label lang="de">checkbox</label>
                     <label lang="en">checkbox</label>
+                </option>
+                <option>
+                    <value>consentManager</value>
+                    <label lang="de">Shopware consent manager</label>
+                    <label lang="en">Shopware consent manager</label>
                 </option>
             </store>
         </element>

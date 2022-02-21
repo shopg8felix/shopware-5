@@ -24,7 +24,7 @@
                         apiKey: '{$rrConfig.apiKey}',
                         apiStage: '{$rrConfig.apiStage}',
                         useGeolocationImmediately: {$rrConfig.useGeolocationImmediately|json_encode},
-                        saveCustomerData: '{$rrConfig.saveCustomerData}',
+                        saveCustomerData: '{$rrConfig.saveCustomerData}' === 'consentManager' ? ($.getCookiePreference('allow_local_storage') ? 'on' : 'off') : '{$rrConfig.saveCustomerData}',
                         browserHistory: {$rrConfig.browserHistory|json_encode},
                         testMode: {$rrConfig.testMode|json_encode},
                         unitSystem: '{$rrConfig.unitSystem}',
