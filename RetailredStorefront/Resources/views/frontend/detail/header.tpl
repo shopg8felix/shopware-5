@@ -1,4 +1,4 @@
-{extends file="parent:frontend/detail/index.tpl"}
+{extends file="parent:frontend/detail/header.tpl"}
 
 {block name='frontend_index_header_javascript_tracking'}
     {$smarty.block.parent}
@@ -39,24 +39,24 @@
                             privacy: {$rrConfig.privacyLink|default:null|json_encode},
                         },
                         customer: {
-                            code: '{$userData.additional.user.customernumber}',
-                            firstName: '{$userData.additional.user.firstname}',
-                            lastName: '{$userData.additional.user.lastname}',
-                            phone: '{$userData.additional.user.phone}',
-                            emailAddress: '{$userData.additional.user.email}',
+                            code: {$userData.additional.user.customernumber|json_encode},
+                            firstName: {$userData.additional.user.firstname|json_encode},
+                            lastName: {$userData.additional.user.lastname|json_encode},
+                            phone: {$userData.additional.user.phone|json_encode},
+                            emailAddress: {$userData.additional.user.email|json_encode},
                         },
                         ui: {
                             reserveButtonClasses: {$rrConfig.reserveButtonClasses|default:null|json_encode},
                         },
                         product: {
-                            code: (!hasVariants || (hasVariants && isVariantSelected)) ? '{if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean}{else}{$sArticle.ordernumber}{/if}' : null,
-                            name: '{$sArticle.articleName}',
+                            code: (!hasVariants || (hasVariants && isVariantSelected)) ? {if $rrConfig.productCodeMapping == 'ean'}{$sArticle.ean|json_encode}{else}{$sArticle.ordernumber|json_encode}{/if} : null,
+                            name: {$sArticle.articleName|json_encode},
                             quantity: 1,
                             imageUrl: '{$sArticle.image.source}',
                             price: {$sArticle.price_numeric},
                             currencyCode: '{$Shop->getCurrency()->getCurrency()}',
                             identifiers: {
-                                ean: '{$sArticle.ean}',
+                                ean: {$sArticle.ean|json_encode},
                             },
                             options: selectedVariants.map(function (variant) {
                                 return {

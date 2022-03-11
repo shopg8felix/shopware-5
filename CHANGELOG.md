@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.2.1] - 2022-03-11
+### Changed
+- using header.tpl instead of index.tpl now
+### Added
+- encoding
+
 ## [1.2.0] - 2022-02-17
 ### Added
 - new config `saveCustomerData`
