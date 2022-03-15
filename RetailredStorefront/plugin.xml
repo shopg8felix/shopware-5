@@ -4,12 +4,21 @@
     <label lang="de">retail.red for Shopware 5</label>
     <label lang="en">retail.red for Shopware 5</label>
 
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <copyright>(c) by Shopgate GmbH</copyright>
     <license>MIT</license>
     <link>https://retail.red</link>
     <author>Shopgate GmbH</author>
     <compatibility minVersion="5.3.0"/>
+
+    <changelog version="1.2.2">
+        <changes lang="de">
+           - added custom template blocks
+        </changes>
+        <changes lang="en">
+            - added custom template blocks
+        </changes>
+    </changelog>
 
     <changelog version="1.2.1">
         <changes lang="de">

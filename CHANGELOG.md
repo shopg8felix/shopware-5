@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.2.2] - 2022-03-15
+### Added
+- custom template blocks
+
 ## [1.2.1] - 2022-03-11
 ### Changed
 - using header.tpl instead of index.tpl now
