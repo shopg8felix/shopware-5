@@ -1,6 +1,6 @@
 <?php
 
-namespace RetailredStorefront\Subscriber;
+namespace SgateClickAndReserve\Subscriber;
 
 use Enlight\Event\SubscriberInterface;
 use Shopware\Components\Plugin\DBALConfigReader;

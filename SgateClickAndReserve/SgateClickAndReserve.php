@@ -1,13 +1,13 @@
 <?php
 
-namespace RetailredStorefront;
+namespace SgateClickAndReserve;
 
 use Shopware\Bundle\CookieBundle\CookieCollection;
 use Shopware\Bundle\CookieBundle\Structs\CookieGroupStruct;
 use Shopware\Bundle\CookieBundle\Structs\CookieStruct;
 use Shopware\Components\Plugin;
 
-class RetailredStorefront extends Plugin
+class SgateClickAndReserve extends Plugin
 {
     public static function getSubscribedEvents(): array
     {

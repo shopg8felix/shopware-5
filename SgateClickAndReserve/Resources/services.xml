@@ -7,20 +7,20 @@
     <services>
 
         <service id="retailred_storefront.subscriber.template_registration"
-                 class="RetailredStorefront\Subscriber\TemplateRegistration">
+                 class="SgateClickAndReserve\Subscriber\TemplateRegistration">
             <argument type="service" id="template"/>
             <argument>%retailred_storefront.plugin_dir%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>
 
         <service id="retailred_storefront.subscriber.less_subscriber"
-                 class="RetailredStorefront\Subscriber\LessSubscriber">
+                 class="SgateClickAndReserve\Subscriber\LessSubscriber">
             <argument>%retailred_storefront.plugin_dir%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>
 
         <service id="retailred_storefront.subscriber.detail_subscriber"
-                 class="RetailredStorefront\Subscriber\DetailSubscriber">
+                 class="SgateClickAndReserve\Subscriber\DetailSubscriber">
             <argument type="service" id="shopware.plugin.config_reader"/>
             <argument>%retailred_storefront.plugin_name%</argument>
             <tag name="shopware.event_subscriber"/>
